@@ -1,0 +1,29 @@
+{
+  "name": "Self-Managed Rye Environment",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "runArgs": [
+    "--name", "${localWorkspaceFolderBasename}",
+    "--hostname", "${localWorkspaceFolderBasename}"
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+        "python.packageManager": "uv",
+        "python.analysis.extraPaths": [
+          "${workspaceFolder}/src"
+        ]
+      },
+      "extensions": [
+        "ms-python.python",
+        "charliermarsh.ruff"
+      ]
+    }
+  },
+  "remoteUser": "vscode",
+  "postCreateCommand": "rye sync"
+}

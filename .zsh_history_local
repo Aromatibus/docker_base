@@ -1,0 +1,9 @@
+just init
+just setup
+just shell
+just clean
+just erase
+docker images
+tree -a
+exit
+: 1777099234:0;code .
